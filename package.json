@@ -10,7 +10,7 @@
     "scripts": {
       "test": "vitest",
       "test:watch": "vitest --watch",
-      "lint": "eslint src/ bin/ tests/",
+      "lint": "eslint ./src ./bin ./tests",
       "prepublishOnly": "npm test"
     },
     "keywords": [
