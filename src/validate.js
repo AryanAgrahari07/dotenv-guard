@@ -246,7 +246,7 @@ function formatValidationError(key, value, propSchema, error) {
 /**
  * Check if this should be a warning only (in non-CI mode)
  */
-function isWarningOnly(propSchema, error) {
+function isWarningOnly(_propSchema, _error) {
   // In development, type coercion failures might be warnings
   // But required field violations are always errors
   return false; // For now, all validation failures are errors
