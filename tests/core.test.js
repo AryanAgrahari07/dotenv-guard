@@ -14,9 +14,13 @@ beforeEach(() => {
   }
 });
 
-afterEach(() => {
+afterEach(async () => {
   if (fs.existsSync(testDir)) {
-    fs.rmSync(testDir, { recursive: true, force: true });
+    try {
+      await fs.promises.rm(testDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 50 });
+    } catch {
+      // Swallow cleanup errors on Windows file locking
+    }
   }
 });
 

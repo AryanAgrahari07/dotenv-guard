@@ -37,7 +37,7 @@ jobs:
         echo "PORT=3000" > .env.test
         echo "DEBUG=true" >> .env.test
         echo "API_KEY=test123" >> .env.test
-        npx . generate --env .env.test --schema .env.test.schema.json
+        npx dotenv-guard generate --env .env.test --schema .env.test.schema.json
         
     - name: Test CLI validation
       run: |
