@@ -1,57 +1,56 @@
-
 {
     "name": "dotenv-guard",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Auto-generate .env schema and validate environment variables at build-time & runtime",
     "main": "src/index.js",
     "bin": {
-      "dotenv-guard": "./bin/dotenv-guard.js"
+        "dotenv-guard": "./bin/dotenv-guard.js"
     },
     "scripts": {
-      "test": "vitest",
-      "test:watch": "vitest --watch",
-      "lint": "eslint ./src ./bin ./tests",
-      "prepublishOnly": "npm test"
+        "test": "vitest",
+        "test:watch": "vitest --watch",
+        "lint": "eslint ./src ./bin ./tests",
+        "prepublishOnly": "npm test"
     },
     "keywords": [
-      "env",
-      "dotenv",
-      "validator",
-      "schema",
-      "cli",
-      "devtool",
-      "environment-variables",
-      "validation",
-      "build-tools"
+        "env",
+        "dotenv",
+        "validator",
+        "schema",
+        "cli",
+        "devtool",
+        "environment-variables",
+        "validation",
+        "build-tools"
     ],
     "author": "Aryan Agrahari <aryanagrahari.dev@gmail.com>",
     "license": "MIT",
     "repository": {
-      "type": "git",
-      "url": "https://github.com/AryanAgrahari07/dotenv-guard.git"
+        "type": "git",
+        "url": "https://github.com/AryanAgrahari07/dotenv-guard.git"
     },
     "bugs": {
-      "url": "https://github.com/AryanAgrahari07/dotenv-guard/issues"
+        "url": "https://github.com/AryanAgrahari07/dotenv-guard/issues"
     },
     "homepage": "https://github.com/AryanAgrahari07/dotenv-guard#readme",
     "engines": {
-      "node": ">=16.0.0"
+        "node": ">=16.0.0"
     },
     "dependencies": {
-      "commander": "^11.1.0",
-      "dotenv": "^16.3.1",
-      "zod": "^3.22.4",
-      "fast-glob": "^3.3.2",
-      "chalk": "^4.1.2"
+        "commander": "^11.1.0",
+        "dotenv": "^16.3.1",
+        "zod": "^3.22.4",
+        "fast-glob": "^3.3.2",
+        "chalk": "^4.1.2"
     },
     "devDependencies": {
-      "vitest": "^0.34.6",
-      "eslint": "^8.54.0"
+        "vitest": "^0.34.6",
+        "eslint": "^8.54.0"
     },
     "files": [
-      "bin/",
-      "src/",
-      "README.md",
-      "LICENSE"
+        "bin/",
+        "src/",
+        "README.md",
+        "LICENSE"
     ]
-  }
+}
