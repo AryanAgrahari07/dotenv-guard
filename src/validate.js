@@ -115,8 +115,8 @@ function loadSchema(schemaPath) {
   
   if (markers) {
     jsonContent = content.substring(
-      markers.startIndex + '// dotenv-guard:start'.length,
-      markers.endIndex - '// dotenv-guard:end'.length
+      markers.startIndex + '// dotenv-shield:start'.length,
+      markers.endIndex - '// dotenv-shield:end'.length
     ).trim();
   } else {
     jsonContent = content;

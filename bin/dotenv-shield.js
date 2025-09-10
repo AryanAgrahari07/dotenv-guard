@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 program
-  .name('dotenv-guard')
+  .name('dotenv-shield')
   .description('Auto-generate .env schema and validate environment variables')
   .version(require('../package.json').version);
 
@@ -68,7 +68,7 @@ program
 
       if (!fs.existsSync(schemaPath)) {
         console.error(chalk.red(`Error: Schema file not found at ${schemaPath}`));
-        console.error(chalk.gray('Run "dotenv-guard generate" first to create a schema.'));
+        console.error(chalk.gray('Run "dotenv-shield generate" first to create a schema.'));
         process.exit(1);
       }
 

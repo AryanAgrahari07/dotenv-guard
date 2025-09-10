@@ -1,7 +1,7 @@
-# dotenv-guard
+# dotenv-shield
 
-[![npm version](https://badge.fury.io/js/dotenv-guard.svg)](https://www.npmjs.com/package/dotenv-guard)
-[![CI](https://github.com/AryanAgrahari07/dotenv-guard/workflows/CI/badge.svg)](https://github.com/AryanAgrahari07/dotenv-guard/actions)
+[![npm version](https://badge.fury.io/js/dotenv-shield.svg)](https://www.npmjs.com/package/dotenv-shield)
+[![CI](https://github.com/AryanAgrahari07/dotenv-shield/workflows/CI/badge.svg)](https://github.com/AryanAgrahari07/dotenv-shield/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **Prevent environment-related crashes in one line.** 
@@ -12,16 +12,16 @@ Auto-generate `.env` schema, infer types, and validate environment variables at 
 
 ```bash
 # Generate schema from your .env file
-npx dotenv-guard generate
+npx dotenv-shield generate
 
 # Validate environment variables
-npx dotenv-guard validate
+npx dotenv-shield validate
 
 # Add to your package.json
-npm install --save-dev dotenv-guard
+npm install --save-dev dotenv-shield
 ```
 
-## Why dotenv-guard?
+## Why dotenv-shield?
 
 ```javascript
 // Before: Your app crashes in production 💥
@@ -29,7 +29,7 @@ const port = process.env.PORT * 1000; // PORT="abc"
 // TypeError: Cannot multiply string by number
 
 // After: Catch errors before deployment ✅
-// dotenv-guard validates PORT must be an integer
+// dotenv-shield validates PORT must be an integer
 ```
 
 ## The Problem
@@ -43,7 +43,7 @@ Environment variable misconfigurations cause **avoidable runtime crashes**:
 
 ## The Solution
 
-**dotenv-guard** automatically:
+**dotenv-shield** automatically:
 
 1. **Generates** `.env.schema.json` by inferring types from your `.env`
 2. **Detects** which variables your code actually uses  
@@ -53,11 +53,11 @@ Environment variable misconfigurations cause **avoidable runtime crashes**:
 ## Installation
 
 ```bash
-npm install --save-dev dotenv-guard
+npm install --save-dev dotenv-shield
 # or
-yarn add --dev dotenv-guard
+yarn add --dev dotenv-shield
 # or
-pnpm add --save-dev dotenv-guard
+pnpm add --save-dev dotenv-shield
 ```
 
 ## Usage
@@ -65,7 +65,7 @@ pnpm add --save-dev dotenv-guard
 ### 1. Generate Schema
 
 ```bash
-npx dotenv-guard generate
+npx dotenv-shield generate
 ```
 
 **Input** (`.env`):
@@ -131,7 +131,7 @@ ADMIN_EMAIL=admin@example.com
 ### 2. Validate Environment
 
 ```bash
-npx dotenv-guard validate
+npx dotenv-shield validate
 ```
 
 **Success:**
@@ -162,7 +162,7 @@ Exit code: 1
 Generate `.env.schema.json` and `.env.example` from your `.env` file.
 
 ```bash
-npx dotenv-guard generate [options]
+npx dotenv-shield generate [options]
 
 Options:
   -e, --env <path>      Path to .env file (default: ".env")
@@ -177,16 +177,16 @@ Options:
 **Examples:**
 ```bash
 # Basic generation
-npx dotenv-guard generate
+npx dotenv-shield generate
 
 # Custom paths
-npx dotenv-guard generate --env .env.production --schema prod.schema.json
+npx dotenv-shield generate --env .env.production --schema prod.schema.json
 
 # Skip code detection
-npx dotenv-guard generate --no-detect
+npx dotenv-shield generate --no-detect
 
 # Preserve manual edits
-npx dotenv-guard generate --merge
+npx dotenv-shield generate --merge
 ```
 
 ### `validate`
@@ -194,7 +194,7 @@ npx dotenv-guard generate --merge
 Validate current environment variables against schema.
 
 ```bash
-npx dotenv-guard validate [options]
+npx dotenv-shield validate [options]
 
 Options:
   -s, --schema <path>   Path to schema file (default: ".env.schema.json")
@@ -208,16 +208,16 @@ Options:
 **Examples:**
 ```bash
 # Basic validation
-npx dotenv-guard validate
+npx dotenv-shield validate
 
 # Load specific .env file first
-npx dotenv-guard validate --env .env.testing
+npx dotenv-shield validate --env .env.testing
 
 # CI mode (stricter)
-npx dotenv-guard validate --ci
+npx dotenv-shield validate --ci
 
 # Quiet mode
-npx dotenv-guard validate --quiet
+npx dotenv-shield validate --quiet
 ```
 
 ### `check`
@@ -225,7 +225,7 @@ npx dotenv-guard validate --quiet
 Quick validation with minimal output - perfect for scripts and CI.
 
 ```bash
-npx dotenv-guard check [options]
+npx dotenv-shield check [options]
 
 # Returns exit code 0 (success) or 1 (failure)
 # No console output unless errors found
@@ -238,11 +238,11 @@ npx dotenv-guard check [options]
 ```json
 {
   "scripts": {
-    "env:generate": "dotenv-guard generate",
-    "env:validate": "dotenv-guard validate",
-    "prestart": "dotenv-guard validate --quiet",
-    "prebuild": "dotenv-guard validate --ci",
-    "pretest": "dotenv-guard check",
+    "env:generate": "dotenv-shield generate",
+    "env:validate": "dotenv-shield validate",
+    "prestart": "dotenv-shield validate --quiet",
+    "prebuild": "dotenv-shield validate --ci",
+    "pretest": "dotenv-shield check",
     "test": "vitest"
   }
 }
@@ -270,10 +270,10 @@ jobs:
         run: npm ci
         
       - name: Generate env schema
-        run: npx dotenv-guard generate
+        run: npx dotenv-shield generate
         
       - name: Validate environment
-        run: npx dotenv-guard validate --ci --json
+        run: npx dotenv-shield validate --ci --json
         # The command above outputs JSON; parse it if you need machine checks
         
       - name: Run tests
@@ -293,7 +293,7 @@ RUN npm ci --only=production
 COPY . .
 
 # Validate environment before starting
-RUN npx dotenv-guard validate --ci || echo "Warning: Environment validation failed"
+RUN npx dotenv-shield validate --ci || echo "Warning: Environment validation failed"
 
 # Start application
 CMD ["npm", "start"]
@@ -303,7 +303,7 @@ CMD ["npm", "start"]
 
 ```javascript
 // next.config.js
-const { validateEnv } = require('dotenv-guard');
+const { validateEnv } = require('dotenv-shield');
 
 // Validate environment at build time
 (async () => {
@@ -322,7 +322,7 @@ module.exports = {
 ## Programmatic API
 
 ```javascript
-const { generateSchema, validateEnv } = require('dotenv-guard');
+const { generateSchema, validateEnv } = require('dotenv-shield');
 
 // Generate schema
 async function generateEnvSchema() {
@@ -372,7 +372,7 @@ generateEnvSchema().then(() => validateEnvironment());
 
 ## Type Inference
 
-dotenv-guard automatically infers types from your `.env` values:
+dotenv-shield automatically infers types from your `.env` values:
 
 | Value | Inferred Type | JSON Schema | Validation Rules |
 |-------|---------------|-------------|-----------------|
@@ -398,7 +398,7 @@ MAX_CONNECTIONS=100 # type: "integer", minimum: 1
 
 ## Secret Detection
 
-dotenv-guard automatically detects and redacts secrets in `.env.example`:
+dotenv-shield automatically detects and redacts secrets in `.env.example`:
 
 **Detected as secrets (case-insensitive):**
 - Variables containing: `PASSWORD`, `SECRET`, `TOKEN`, `KEY`, `AUTH`
@@ -427,7 +427,7 @@ WEBHOOK_TOKEN=your-secret-here
 Preserve manual schema edits when regenerating:
 
 ```bash
-npx dotenv-guard generate --merge
+npx dotenv-shield generate --merge
 ```
 
 This preserves:
@@ -454,7 +454,7 @@ After `--merge`, your custom description and constraints are preserved while upd
 
 ### Code Detection
 
-dotenv-guard scans your JavaScript/TypeScript files for `process.env` usage to automatically mark variables as required:
+dotenv-shield scans your JavaScript/TypeScript files for `process.env` usage to automatically mark variables as required:
 
 ```javascript
 // Detected in your code:
@@ -474,7 +474,7 @@ const dbUrl = process.env[`${type}_DATABASE_URL`]; // *_DATABASE_URL patterns de
 
 **Disable with:**
 ```bash
-npx dotenv-guard generate --no-detect
+npx dotenv-shield generate --no-detect
 ```
 
 ### CI Mode
@@ -482,7 +482,7 @@ npx dotenv-guard generate --no-detect
 Stricter validation for production environments:
 
 ```bash
-npx dotenv-guard validate --ci
+npx dotenv-shield validate --ci
 ```
 
 **CI mode differences:**
@@ -503,7 +503,7 @@ Config file support will be added in a future version. For now, use CLI flags as
 **❌ "Schema file not found"**
 ```bash
 # Generate schema first
-npx dotenv-guard generate
+npx dotenv-shield generate
 ```
 
 **❌ "Missing required environment variable: DATABASE_URL"**
@@ -535,7 +535,7 @@ CONFIG={invalid-json}        # ❌ Invalid JSON syntax
 const port = process.env.PORT;
 
 # Or disable detection if not needed
-npx dotenv-guard generate --no-detect
+npx dotenv-shield generate --no-detect
 ```
 
 ### Override Type Detection
@@ -568,11 +568,11 @@ For different environments, use multiple schema files:
 
 ```bash
 # Generate for different environments
-npx dotenv-guard generate --env .env.development --schema .env.development.schema.json
-npx dotenv-guard generate --env .env.production --schema .env.production.schema.json
+npx dotenv-shield generate --env .env.development --schema .env.development.schema.json
+npx dotenv-shield generate --env .env.production --schema .env.production.schema.json
 
 # Validate against specific environment
-npx dotenv-guard validate --schema .env.production.schema.json
+npx dotenv-shield validate --schema .env.production.schema.json
 ```
 
 ### Debug Mode
@@ -580,8 +580,8 @@ npx dotenv-guard validate --schema .env.production.schema.json
 Enable verbose output for troubleshooting:
 
 ```bash
-DEBUG=dotenv-guard npx dotenv-guard generate
-DEBUG=dotenv-guard npx dotenv-guard validate
+DEBUG=dotenv-shield npx dotenv-shield generate
+DEBUG=dotenv-shield npx dotenv-shield validate
 ```
 
 This shows:
@@ -613,8 +613,8 @@ if (!dbUrl) {
 ```json
 {
   "scripts": {
-    "start": "dotenv-guard validate && node server.js",
-    "dev": "dotenv-guard validate && nodemon server.js"
+    "start": "dotenv-shield validate && node server.js",
+    "dev": "dotenv-shield validate && nodemon server.js"
   }
 }
 ```
@@ -624,7 +624,7 @@ if (!dbUrl) {
 ```javascript
 // app.js
 const express = require('express');
-const { validateEnv } = require('dotenv-guard');
+const { validateEnv } = require('dotenv-shield');
 
 async function startServer() {
   // Validate environment at startup
@@ -651,7 +651,7 @@ startServer();
 ```javascript
 // vite.config.js
 import { defineConfig } from 'vite';
-import { validateEnv } from 'dotenv-guard';
+import { validateEnv } from 'dotenv-shield';
 
 export default defineConfig(async ({ command, mode }) => {
   // Validate environment variables
@@ -676,10 +676,10 @@ export default defineConfig(async ({ command, mode }) => {
 ```bash
 # Replace dotenv-safe
 npm uninstall dotenv-safe
-npm install --save-dev dotenv-guard
+npm install --save-dev dotenv-shield
 
 # Generate schema from existing .env.example
-npx dotenv-guard generate --env .env.example --schema .env.schema.json
+npx dotenv-shield generate --env .env.example --schema .env.schema.json
 ```
 
 ### From envalid
@@ -694,35 +694,35 @@ const config = env.cleanEnv(process.env, {
   DEBUG: env.bool({ default: false })
 });
 
-// After (dotenv-guard)
-// 1. Generate schema: npx dotenv-guard generate
+// After (dotenv-shield)
+// 1. Generate schema: npx dotenv-shield generate
 // 2. Validate in code:
-const { validateEnv } = require('dotenv-guard');
+const { validateEnv } = require('dotenv-shield');
 await validateEnv(); // Validates against .env.schema.json
 ```
 
 ## FAQ
 
-**Q: Does dotenv-guard load my .env file?**
-A: No, dotenv-guard only validates `process.env`. Use `dotenv` or your framework's env loading mechanism separately.
+**Q: Does dotenv-shield load my .env file?**
+A: No, dotenv-shield only validates `process.env`. Use `dotenv` or your framework's env loading mechanism separately.
 
-**Q: Can I use dotenv-guard in production?**
-A: Yes! Use `dotenv-guard validate --ci` in production builds to catch configuration issues before deployment.
+**Q: Can I use dotenv-shield in production?**
+A: Yes! Use `dotenv-shield validate --ci` in production builds to catch configuration issues before deployment.
 
 **Q: What happens if I have extra variables not in the schema?**
 A: By default, extra variables are allowed. Use `--ci` mode or `strict: true` in config to disallow them.
 
 **Q: Can I validate environment variables from a specific file?**
-A: Yes, use `npx dotenv-guard validate --env .env.production` to load and validate a specific env file.
+A: Yes, use `npx dotenv-shield validate --env .env.production` to load and validate a specific env file.
 
 **Q: How do I handle dynamic environment variable names?**
-A: dotenv-guard has limited support for patterns like `${type}_DATABASE_URL`. For complex dynamic cases, consider manual schema editing.
+A: dotenv-shield has limited support for patterns like `${type}_DATABASE_URL`. For complex dynamic cases, consider manual schema editing.
 
 **Q: Is there TypeScript support?**
-A: Yes! dotenv-guard scans TypeScript files for `process.env` usage. TypeScript type generation is planned for v2.
+A: Yes! dotenv-shield scans TypeScript files for `process.env` usage. TypeScript type generation is planned for v2.
 
 **Q: Can I use this with monorepos?**
-A: Yes, run dotenv-guard in each package directory, or use `--cwd` to specify the working directory.
+A: Yes, run dotenv-shield in each package directory, or use `--cwd` to specify the working directory.
 
 ## Contributing
 
@@ -731,15 +731,15 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ### Development Setup
 
 ```bash
-git clone https://github.com/AryanAgrahari07/dotenv-guard.git
-cd dotenv-guard
+git clone https://github.com/AryanAgrahari07/dotenv-shield.git
+cd dotenv-shield
 npm install
 
 # Run tests
 npm test
 
 # Run CLI locally
-node bin/dotenv-guard.js generate
+node bin/dotenv-shield.js generate
 ```
 
 ### Running Tests
@@ -787,4 +787,4 @@ MIT © [Aryan Agrahari](https://github.com/AryanAgrahari07)
 
 **Made with ❤️ for developers who are tired of environment variable bugs.**
 
-[Report Issues](https://github.com/AryanAgrahari07/dotenv-guard/issues) • [Request Features](https://github.com/AryanAgrahari07/dotenv-guard/discussions) • [View Changelog](CHANGELOG.md)
+[Report Issues](https://github.com/AryanAgrahari07/dotenv-shield/issues) • [Request Features](https://github.com/AryanAgrahari07/dotenv-shield/discussions) • [View Changelog](CHANGELOG.md)

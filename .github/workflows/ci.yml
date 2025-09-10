@@ -37,11 +37,11 @@ jobs:
         echo "PORT=3000" > .env.test
         echo "DEBUG=true" >> .env.test
         echo "API_KEY=test123" >> .env.test
-        npx dotenv-guard generate --env .env.test --schema .env.test.schema.json
+        npx dotenv-shield generate --env .env.test --schema .env.test.schema.json
         
     - name: Test CLI validation
       run: |
-        PORT=3000 DEBUG=true API_KEY=test123 npx . validate --schema .env.test.schema.json
+        PORT=3000 DEBUG=true API_KEY=test123 npx dotenv-shield validate --schema .env.test.schema.json
   
   integration:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
         mkdir test-project
         cd test-project
         npm init -y
-        npm install ../dotenv-guard-*.tgz
+        npm install ../dotenv-shield-*.tgz
         
         # Create sample .env
         echo "DATABASE_URL=postgres://localhost/test" > .env
@@ -76,10 +76,10 @@ jobs:
         echo "DEBUG=true" >> .env
         
         # Generate schema
-        npx dotenv-guard generate
+        npx dotenv-shield generate
         
         # Validate
-        npx dotenv-guard validate
+        npx dotenv-shield validate
         
         # Check files were created
         test -f .env.schema.json

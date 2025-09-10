@@ -1,18 +1,18 @@
 {
-  "name": "dotenv-guard-example-basic-node",
+  "name": "dotenv-shield-example-basic-node",
   "private": true,
   "version": "0.0.0",
   "type": "commonjs",
   "scripts": {
-    "env:gen": "dotenv-guard generate",
-    "prestart": "dotenv-guard validate --env .env --quiet",
+    "env:gen": "dotenv-shield generate",
+    "prestart": "dotenv-shield validate --env .env --quiet",
     "start": "node server.js"
   },
   "dependencies": {
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "dotenv-guard": "file:../.."
+    "dotenv-shield": "file:../.."
   }
 }
 

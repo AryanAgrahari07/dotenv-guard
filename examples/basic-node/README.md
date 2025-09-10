@@ -1,6 +1,6 @@
-# dotenv-guard example: Basic Node app
+# dotenv-shield example: Basic Node app
 
-This is a minimal Node.js example showing how to use dotenv-guard to generate a schema and validate env vars before start.
+This is a minimal Node.js example showing how to use dotenv-shield to generate a schema and validate env vars before start.
 
 ## Setup
 
@@ -22,7 +22,7 @@ This will create `.env.schema.json` and `.env.example` in this folder.
 npm start
 ```
 
-The `prestart` script runs `dotenv-guard validate --quiet` to ensure env vars are correct.
+The `prestart` script runs `dotenv-shield validate --quiet` to ensure env vars are correct.
 
 Open http://localhost:3000 to see the running app.
 

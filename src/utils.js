@@ -185,8 +185,8 @@ async function detectEnvUsage(cwd = process.cwd()) {
  * Parse markers in schema file for merge mode
  */
 function parseSchemaMarkers(content) {
-  const startMarker = '// dotenv-guard:start';
-  const endMarker = '// dotenv-guard:end';
+  const startMarker = '// dotenv-shield:start';
+  const endMarker = '// dotenv-shield:end';
   
   const startIndex = content.indexOf(startMarker);
   const endIndex = content.indexOf(endMarker);

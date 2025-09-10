@@ -1,6 +1,6 @@
-# Contributing to dotenv-guard
+# Contributing to dotenv-shield
 
-Thank you for your interest in contributing to dotenv-guard! We welcome contributions from the community and are grateful for any help you can provide.
+Thank you for your interest in contributing to dotenv-shield! We welcome contributions from the community and are grateful for any help you can provide.
 
 ## Table of Contents
 
@@ -47,8 +47,8 @@ This project adheres to a code of conduct adapted from the [Contributor Covenant
 
 ```bash
 # Clone your fork
-git clone https://github.com/AryanAgrahari07/dotenv-guard.git
-cd dotenv-guard
+git clone https://github.com/AryanAgrahari07/dotenv-shield.git
+cd dotenv-shield
 
 # Install dependencies
 npm install
@@ -57,15 +57,15 @@ npm install
 npm test
 
 # Test the CLI locally
-node bin/dotenv-guard.js --help
+node bin/dotenv-shield.js --help
 ```
 
 ### Project Structure
 
 ```
-dotenv-guard/
+dotenv-shield/
 ├── bin/
-│   └── dotenv-guard.js          # CLI entry point
+│   └── dotenv-shield.js          # CLI entry point
 ├── src/
 │   ├── index.js              # Main API exports
 │   ├── generate.js           # Schema generation logic
@@ -116,8 +116,8 @@ We welcome several types of contributions:
    npm test
    
    # Test CLI manually
-   node bin/dotenv-guard.js generate
-   node bin/dotenv-guard.js validate
+   node bin/dotenv-shield.js generate
+   node bin/dotenv-shield.js validate
    
    # Test with different Node versions if possible
    ```
@@ -237,7 +237,7 @@ When reporting bugs, please include:
    - Node.js version
    - npm/yarn version
    - Operating system
-   - dotenv-guard version
+   - dotenv-shield version
 
 2. **Steps to Reproduce**:
    - Clear, step-by-step instructions
@@ -273,20 +273,20 @@ echo "PORT=3000" > .env
 echo "DEBUG=true" >> .env
 echo "DATABASE_URL=postgres://localhost/test" >> .env
 
-# Test your local dotenv-guard
-node ../dotenv-guard/bin/dotenv-guard.js generate
-node ../dotenv-guard/bin/dotenv-guard.js validate
+# Test your local dotenv-shield
+node ../dotenv-shield/bin/dotenv-shield.js generate
+node ../dotenv-shield/bin/dotenv-shield.js validate
 ```
 
 ### Debugging
 
 - Use `console.log()` or `debugger` for quick debugging
-- The `DEBUG=dotenv-guard` environment variable enables verbose output
+- The `DEBUG=dotenv-shield` environment variable enables verbose output
 - Use Node.js debugging tools for complex issues
 
 ### Performance Considerations
 
-- dotenv-guard should be fast for typical use cases
+- dotenv-shield should be fast for typical use cases
 - Profile code if performance becomes an issue
 - Consider memory usage for large projects
 - Test with various project sizes
@@ -299,4 +299,4 @@ If you have questions about contributing, please:
 3. Open a new issue with the "question" label
 4. Reach out to maintainers
 
-Thank you for contributing to dotenv-guard! 🚀
+Thank you for contributing to dotenv-shield! 🚀

@@ -1,10 +1,10 @@
 {
-    "name": "dotenv-guard",
+    "name": "dotenv-shield",
     "version": "1.0.2",
     "description": "Auto-generate .env schema and validate environment variables at build-time & runtime",
     "main": "src/index.js",
     "bin": {
-        "dotenv-guard": "./bin/dotenv-guard.js"
+        "dotenv-shield": "./bin/dotenv-shield.js"
     },
     "scripts": {
         "test": "vitest",
@@ -27,12 +27,12 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/AryanAgrahari07/dotenv-guard.git"
+        "url": "https://github.com/AryanAgrahari07/dotenv-shield.git"
     },
     "bugs": {
-        "url": "https://github.com/AryanAgrahari07/dotenv-guard/issues"
+        "url": "https://github.com/AryanAgrahari07/dotenv-shield/issues"
     },
-    "homepage": "https://github.com/AryanAgrahari07/dotenv-guard#readme",
+    "homepage": "https://github.com/AryanAgrahari07/dotenv-shield#readme",
     "engines": {
         "node": ">=16.0.0"
     },
