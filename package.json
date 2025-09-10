@@ -1,6 +1,6 @@
 {
     "name": "dotenv-guard",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Auto-generate .env schema and validate environment variables at build-time & runtime",
     "main": "src/index.js",
     "bin": {
